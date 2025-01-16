@@ -13,7 +13,7 @@ public class HugService {
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(ip);
 
-        String msg = "Hug from client!";
+        String msg = SharedData.userName + "Hug from client!";
         byte[] buffer = msg.getBytes();
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         socket.send(packet);
@@ -41,8 +41,13 @@ public class HugService {
                     String msg = new String(packet.getData(), 0, packet.getLength());
                     InetAddress clientAddress = packet.getAddress();
                     int clientPort = packet.getPort();
-                    System.out.println(clientAddress.getHostAddress() + " want to hug you.");
 
+                    String[] parts = msg.split(":", 2);
+                    String senderName = parts[0];
+                    String message = parts[1];
+
+                    System.out.println(senderName + " (" + clientAddress.getHostAddress() + ") want to hug you.");
+                   
                     // 等待用户输入hug accept命令
                     Scanner scanner = new Scanner(System.in);
                     String command = scanner.nextLine();
@@ -51,7 +56,7 @@ public class HugService {
                         buffer = response.getBytes();
                         packet = new DatagramPacket(buffer, buffer.length, clientAddress, clientPort);
                         socket.send(packet);
-                        System.out.println("Hug消息已发送至 " + clientAddress.getHostAddress());
+                        System.out.println("你拥抱了" + senderName);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

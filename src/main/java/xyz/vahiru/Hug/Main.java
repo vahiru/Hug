@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         HugService hugService = new HugService();
         Scanner scanner = new Scanner(System.in);
+        
+        // 询问用户的名字
+        System.out.print("请输入您的名字：");
+        SharedData.userName = scanner.nextLine();
 
         System.out.print("选择模式（client/server）：");
         String mode = scanner.nextLine();
