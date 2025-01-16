@@ -41,10 +41,15 @@ public class HugService {
                     String msg = new String(packet.getData(), 0, packet.getLength());
                     InetAddress clientAddress = packet.getAddress();
                     int clientPort = packet.getPort();
-
+                    
                     String[] parts = msg.split(":", 2);
+                    if (parts.length < 2) {
+                        System.out.println("收到的消息格式不正确：" + msg);
+                        continue;
+                    }
                     String senderName = parts[0];
                     String message = parts[1];
+
 
                     System.out.println(senderName + " (" + clientAddress.getHostAddress() + ") want to hug you.");
                    
