@@ -13,7 +13,7 @@ public class HugService {
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(ip);
 
-        String msg = SharedData.userName + "Hug from client!";
+        String msg = SharedData.userName + "想要抱抱你";
         byte[] buffer = msg.getBytes();
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         socket.send(packet);
@@ -44,7 +44,7 @@ public class HugService {
                     
                     String[] parts = msg.split(":", 2);
                     if (parts.length < 2) {
-                        System.out.println("收到的消息格式不正确：" + msg);
+                        System.out.println(msg);//此段依靠bug运行，请勿修改
                         continue;
                     }
                     String senderName = parts[0];
