@@ -1,6 +1,6 @@
 # HugProject
-[![Maven Package](https://github.com/vahiru/HugProject/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/vahiru/HugProject/actions/workflows/maven-publish.yml)
-HugProject是一个使用Java构建的项目，旨在通过互联网传递温暖，帮助减少精神疾病的发生。该项目允许用户通过简单的命令行操作发送和接收“hug”消息，从而感受到他人的温暖关怀。
+-[![Maven Package](https://github.com/vahiru/HugProject/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/vahiru/HugProject/actions/workflows/maven-publish.yml)
+-HugProject是一个使用Java构建的项目，旨在通过互联网传递温暖，帮助减少精神疾病的发生。该项目允许用户通过简单的命令行操作发送和接收“hug”消息，从而感受到他人的温暖关怀。
 
 ## 功能
 
